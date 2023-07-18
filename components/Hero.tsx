@@ -1,4 +1,5 @@
 import { getBanner } from "@/sanity/lib/utils";
+import { PortableText } from "@portabletext/react";
 import React from "react";
 
 export default async function Hero() {
@@ -33,7 +34,7 @@ export default async function Hero() {
               key={banner._id}
               className="mt-6 text-lg leading-8 text-slate-50"
             >
-              {banner.content}
+              <PortableText value={banner.content} />
             </p>
           ))}
 
