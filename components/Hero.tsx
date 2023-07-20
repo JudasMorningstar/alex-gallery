@@ -1,5 +1,6 @@
 import { getBanner } from "@/sanity/lib/utils";
 import { PortableText } from "@portabletext/react";
+import Link from "next/link";
 import React from "react";
 
 export default async function Hero() {
@@ -19,7 +20,9 @@ export default async function Hero() {
         />
       </div>
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div className="hidden sm:mb-8 sm:flex sm:justify-center"></div>
+        {/* <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+
+        </div> */}
         <div className="text-center">
           {banners.map((banner) => (
             <h1
@@ -30,21 +33,21 @@ export default async function Hero() {
             </h1>
           ))}
           {banners.map((banner) => (
-            <p
+            <div
               key={banner._id}
               className="mt-6 text-lg leading-8 text-slate-50"
             >
-              <PortableText value={banner.content} />
-            </p>
+              {banner.content}
+            </div>
           ))}
 
           <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
+            <Link
               href="#"
               className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Get in touch
-            </a>
+            </Link>
             <a
               href="/about"
               className="text-sm font-semibold leading-6 text-slate-50"

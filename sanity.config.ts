@@ -16,8 +16,10 @@ import {
 
 export default defineConfig({
   basePath: "/studio",
+  title: "Alex Portfolio",
   projectId,
   dataset,
+
   // Add and edit the content schema in the './sanity/schema' folder
   schema,
   plugins: [
