@@ -1,18 +1,16 @@
-import { getCategory, getHome, getPictures } from "@/sanity/lib/utils";
+import { getPictures } from "@/sanity/lib/utils";
 import React from "react";
 import Image from "next/image";
-import { PortableText } from "@portabletext/react";
 import Link from "next/link";
 
 export default async function Sections() {
-  const categories = await getCategory();
   const pictures = await getPictures();
   return (
     <div className="mx-auto max-w-[1960px] p-4">
       {pictures.map((picture) => (
         <div
           key={picture._id}
-          className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4 text-white mb-4"
+          className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4"
         >
           <Link
             href={"#"}
@@ -32,6 +30,14 @@ export default async function Sections() {
                 25vw"
               />
             ))}
+          </Link>
+          <Link
+            // href={"/gallery/${gallery.slug}"}
+            href={`/gallery/${picture.slug}`}
+            key={picture._id}
+            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            view more
           </Link>
         </div>
       ))}

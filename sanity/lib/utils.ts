@@ -36,6 +36,7 @@ export async function getHome(): Promise<Home[]> {
     }`
   );
 }
+
 export async function getGallery(): Promise<Gallery[]> {
   return client.fetch(
     groq`*[_type == "home"]{
@@ -53,8 +54,22 @@ export async function getPictures(): Promise<Pictures[]> {
       _id,
       _createdAt,
       name,
+      "slug": slug.current,
       "images": images[].asset->url,
       description
     }`
+  );
+}
+export async function getPicture(slug: string): Promise<Pictures> {
+  return client.fetch(
+    groq`*[_type == "pictures" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "images": images[].asset->url,
+      description
+    }`,
+    { slug }
   );
 }

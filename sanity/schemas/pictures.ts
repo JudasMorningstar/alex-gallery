@@ -11,6 +11,12 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
+    }),
+    defineField({
       name: "images",
       type: "array",
       title: "Images",
