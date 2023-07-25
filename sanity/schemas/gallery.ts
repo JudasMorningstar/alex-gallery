@@ -1,4 +1,4 @@
-import { defineField, defineType } from "sanity";
+import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "gallery",
@@ -6,15 +6,21 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "category",
-      title: "Category",
+      name: "name",
+      title: "Name",
       type: "string",
+    }),
+    defineField({
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "name" },
     }),
     defineField({
       type: "array",
       name: "images",
       description: "Select images from cloudinary",
-      of: [{ type: "image" }],
+      of: [defineArrayMember({ type: "cloudinary.asset" })],
     }),
   ],
 });

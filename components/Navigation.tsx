@@ -15,9 +15,9 @@ import {
 } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const categories = [
@@ -47,7 +47,7 @@ export default function Navigation() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-slate-50"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -59,14 +59,14 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-white"
+              className="text-sm font-semibold leading-6 text-slate-50 hover:text-indigo-500 "
             >
               {item.name}
             </Link>
           ))}
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
             <Popover className="relative">
-              <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
+              <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-50">
                 Gallery{" "}
                 <ChevronDownIcon
                   className="h-5 w-5 flex-none text-gray-400"
@@ -89,12 +89,6 @@ export default function Navigation() {
                         key={item.name}
                         className="group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gradient-to-r from-indigo-500 ..."
                       >
-                        {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                          <item.icon
-                            className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
-                            aria-hidden="true"
-                          />
-                        </div> */}
                         <div className="flex-auto">
                           <Link
                             href={item.href}

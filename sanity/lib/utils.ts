@@ -1,6 +1,6 @@
 import { createClient, groq } from "next-sanity";
 import { client } from "./client";
-import { Banner, Category, Gallery, Home, Pictures } from "@/utils/types";
+import { About, Banner, Contact, Gallery, Home, Pictures } from "@/utils/types";
 
 export async function getBanner(): Promise<Banner[]> {
   return client.fetch(
@@ -14,37 +14,53 @@ export async function getBanner(): Promise<Banner[]> {
   );
 }
 
-export async function getCategory(): Promise<Category[]> {
+export async function getAbout(): Promise<About> {
   return client.fetch(
-    groq`*[_type == "category"]{
+    groq`*[_type == "about"]{
       _id,
       _createdAt,
-      title,
+      image,
+      slug,
       "image": image.asset->url,
-      description,
+      bio,
     }`
   );
 }
 
-export async function getHome(): Promise<Home[]> {
+export async function getContact(): Promise<Contact> {
   return client.fetch(
-    groq`*[_type == "home"]{
+    groq`*[_type == "contact"]{
       _id,
       _createdAt,
+      "slug": slug.current,
       name,
-      "image": cloudinary.asset->url
+      email,
+      message,
     }`
   );
 }
 
 export async function getGallery(): Promise<Gallery[]> {
   return client.fetch(
-    groq`*[_type == "home"]{
+    groq`*[_type == "gallery"]{
       _id,
       _createdAt,
-      category,     
-      "images": cloudinary[].asset->url
+      name,
+      "slug": slug.current,     
+      "images": images[].url
     }`
+  );
+}
+export async function getMyGallery(slug: string): Promise<Gallery> {
+  return client.fetch(
+    groq`*[_type == "gallery" && slug.current == $slug][0]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "images": images[].url,
+    }`,
+    { slug }
   );
 }
 
@@ -71,5 +87,16 @@ export async function getPicture(slug: string): Promise<Pictures> {
       description
     }`,
     { slug }
+  );
+}
+export async function getHome(): Promise<Home[]> {
+  return client.fetch(
+    groq`*[_type == "home"]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "images": images[].url,
+    }`
   );
 }

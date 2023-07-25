@@ -13,6 +13,7 @@ import {
   cloudinaryAssetSourcePlugin,
   cloudinarySchemaPlugin,
 } from "sanity-plugin-cloudinary";
+import { assist } from "@sanity/assist";
 
 export default defineConfig({
   basePath: "/studio",
@@ -24,6 +25,7 @@ export default defineConfig({
   schema,
   plugins: [
     deskTool(),
+    assist(),
     cloudinaryAssetSourcePlugin(),
     cloudinarySchemaPlugin(),
     // Vision is a tool that lets you query your content with GROQ in the studio

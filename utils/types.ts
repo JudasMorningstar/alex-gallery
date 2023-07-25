@@ -1,3 +1,12 @@
+import { type } from "os";
+
+export type Home = {
+  _id: string;
+  createdAt: string;
+  name: string;
+  images: string[];
+};
+
 export type Banner = {
   _id: string;
   createdAt: Date;
@@ -5,23 +14,29 @@ export type Banner = {
   slogan: string;
   content: string[];
 };
-export type Category = {
-  _id: string;
-  createdAt: Date;
-  title: string;
-  image: string;
-  description: string[];
-};
-export type Home = {
+
+export type About = {
   _id: string;
   _createdAt: Date;
   name: string;
-  image: string;
+  slug: string;
+  images: string;
+  bio: string[];
 };
+
+export type Contact = {
+  _id: string;
+  _createdAt: Date;
+  name: string;
+  email: string;
+  message: string[];
+};
+
 export type Gallery = {
   _id: string;
   _createdAt: Date;
-  category: string;
+  name: string;
+  slug: string;
   images: string[];
 };
 
@@ -33,7 +48,6 @@ export type Pictures = {
   images: string[];
   description: string[];
 };
-
 export interface ImageProps {
   id: number;
   height: string;
