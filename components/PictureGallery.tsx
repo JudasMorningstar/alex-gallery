@@ -1,5 +1,4 @@
 import { getGallery, getHome } from "@/sanity/lib/utils";
-import pictures from "@/sanity/schemas/pictures";
 import React from "react";
 import Image from "next/image";
 
