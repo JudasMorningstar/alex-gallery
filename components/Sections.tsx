@@ -22,9 +22,9 @@ export default async function Sections() {
               className="mt-5 rounded-lg"
             />
             <div className="mt-4 md:mt-0">
-              <h2 className="mb-4 text-4xl tracking-tight font-extrabold ">
+              <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-slate-50">
                 <span className="text-indigo-600">{picture.name}</span>{" "}
-                Photography
+                <br></br>Photography
               </h2>
               <p className="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">
                 {picture.description}
