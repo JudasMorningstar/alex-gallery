@@ -25,7 +25,7 @@ export default defineConfig({
   schema,
   plugins: [
     deskTool(),
-    assist(),
+    // assist(),
     cloudinaryAssetSourcePlugin(),
     cloudinarySchemaPlugin(),
     // Vision is a tool that lets you query your content with GROQ in the studio

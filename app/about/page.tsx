@@ -1,10 +1,16 @@
 import Navigation from "@/components/Navigation";
+import { getAboutMe } from "@/sanity/lib/utils";
 
-export default function About() {
+// type Props = {
+//   params: { about: string };
+// };
+
+export default async function About() {
+  const aboutMe = await getAboutMe();
+
   return (
     <>
-      <Navigation />
-      <div>About Page</div>
+      <div className="text-white text-center">{aboutMe.name}</div>
     </>
   );
 }

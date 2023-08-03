@@ -1,5 +1,3 @@
-import { type } from "os";
-
 export type Home = {
   _id: string;
   createdAt: string;
@@ -20,7 +18,15 @@ export type About = {
   _createdAt: Date;
   name: string;
   slug: string;
-  images: string;
+  image: string;
+  bio: string[];
+};
+export type AboutMe = {
+  _id: string;
+  _createdAt: Date;
+  name: string;
+  // slug: string;
+  profile: string;
   bio: string[];
 };
 
