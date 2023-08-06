@@ -2,13 +2,26 @@ import { groq } from "next-sanity";
 import { client } from "./client";
 import {
   About,
-  AboutMe,
   Banner,
   Contact,
+  Desk,
   Gallery,
   Home,
   Pictures,
 } from "@/utils/types";
+
+export async function getAbout(): Promise<About[]> {
+  return client.fetch(
+    groq`*[_type == "about"]{
+      _id,
+      _createdAt,
+      name,
+      "slug": slug.current,
+      "image": images.asset->url,
+      bio,
+    }`
+  );
+}
 
 export async function getBanner(): Promise<Banner[]> {
   return client.fetch(
@@ -84,18 +97,19 @@ export async function getPicture(slug: string): Promise<Pictures> {
     { slug }
   );
 }
-export async function getAboutMe(): Promise<AboutMe> {
+export async function getDesk(): Promise<Desk> {
   return client.fetch(
-    groq`*[_type == "pictures"]{
+    groq`*[_type == "desk"]{
       _id,
       _createdAt,
       name,
-      
-      "profile": images.asset->url,
-      bio,
+      "slug": slug.current,
+      "images": images.asset->url,
+      description
     }`
   );
 }
+
 export async function getHome(): Promise<Home[]> {
   return client.fetch(
     groq`*[_type == "home"]{
@@ -104,19 +118,6 @@ export async function getHome(): Promise<Home[]> {
       name,
       "slug": slug.current,
       "images": images[].url,
-    }`
-  );
-}
-
-export async function getAbout(): Promise<About> {
-  return client.fetch(
-    groq`*[_type == "about"]{
-      _id,
-      _createdAt,
-      name,
-      "slug": slug.current,
-      "image": images.asset->url,
-      bio,
     }`
   );
 }

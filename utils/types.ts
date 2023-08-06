@@ -21,14 +21,6 @@ export type About = {
   image: string;
   bio: string[];
 };
-export type AboutMe = {
-  _id: string;
-  _createdAt: Date;
-  name: string;
-  // slug: string;
-  profile: string;
-  bio: string[];
-};
 
 export type Contact = {
   _id: string;
@@ -52,6 +44,15 @@ export type Pictures = {
   name: string;
   slug: string;
   images: string[];
+  description: string[];
+};
+
+export type Desk = {
+  _id: string;
+  _createdAt: Date;
+  name: string;
+  slug: string;
+  images: string;
   description: string[];
 };
 export interface ImageProps {

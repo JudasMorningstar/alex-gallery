@@ -1,7 +1,5 @@
 "use client";
-import Navigation from "@/components/Navigation";
 import { getMyGallery } from "@/sanity/lib/utils";
-import { Carousel } from "@material-tailwind/react";
 import Image from "next/image";
 import Link from "next/link";
 

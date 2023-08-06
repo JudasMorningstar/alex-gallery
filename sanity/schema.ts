@@ -6,17 +6,8 @@ import pictures from "./schemas/pictures";
 import contact from "./schemas/contact";
 import home from "./schemas/home";
 import about from "./schemas/about";
-import aboutMe from "./schemas/aboutMe";
+import desk from "./schemas/desk";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [
-    about,
-    aboutMe,
-    blockContent,
-    banner,
-    gallery,
-    pictures,
-    contact,
-    home,
-  ],
+  types: [desk, about, blockContent, banner, gallery, pictures, contact, home],
 };
