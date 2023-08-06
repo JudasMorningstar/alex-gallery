@@ -7,11 +7,11 @@ import {
 } from "@heroicons/react/24/outline";
 
 type Props = {
-  slide: string[];
+  slide: string;
   index: any;
 };
 
-function ImageGallery({ galleryImages }) {
+function ImageGallery({ galleryImages }: any) {
   const [slideNumber, setSlideNumber] = useState(0);
   const [openModal, setOpenModal] = useState(false);
 
