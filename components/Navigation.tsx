@@ -137,7 +137,7 @@ export default function Navigation() {
               {/* <span>Alex Pitsillis</span> */}
               <Image
                 className="h-8 w-auto"
-                src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1691341853/alex/Asset_1_t9fugk.png"
+                src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1691500015/logo_bnkr1d.png"
                 alt="alex-logo"
                 height={50}
                 width={100}
