@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Alex Pitsillis",
   description:
-    "A simple portfolio website to showcase my scill as a photographer.",
+    "Explore the world through my lens. Discover captivating moments captured through photography. Welcome to my portfolio showcasing a blend of landscapes, portraits, and events.",
 };
 
 export default function RootLayout({
