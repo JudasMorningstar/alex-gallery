@@ -30,7 +30,7 @@ export default async function About() {
 
                 <div>
                   <Image
-                    src="https://cdn.sanity.io/images/bix8k3xh/production/078f741c6e129505291fa66b72655bdb341f5719-4496x3000.jpg"
+                    src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1690959857/alex/DSC_5696_uhgjcx.jpg"
                     alt="image"
                     loading="lazy"
                     width={560}
