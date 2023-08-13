@@ -10,5 +10,9 @@ type Props = {
 export default async function PictureGallery({ params }: Props) {
   const slug = params.gallery;
   const gallery = await getMyGallery(slug);
-  return <ImageGallery images={gallery.images} />;
+  return (
+    <>
+      <ImageGallery images={gallery.images} />;
+    </>
+  );
 }
