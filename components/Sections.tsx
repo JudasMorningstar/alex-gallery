@@ -2,6 +2,7 @@ import { getPictures } from "@/sanity/lib/utils";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import ImageGallery from "./ImageGallery";
 
 export default async function Sections() {
   const pictures = await getPictures();
@@ -15,7 +16,7 @@ export default async function Sections() {
               alt={picture.name}
               width={1024}
               height={576}
-              sizes="(max-width: 640px) 100vw,
+              sizes="(max-width: 640px) 100vw,      
                 (max-width: 1280px) 50vw,
                 (max-width: 1536px) 33vw,
                 25vw"
@@ -38,24 +39,8 @@ export default async function Sections() {
               </Link>
             </div>
           </div>
-          <div
-            key={picture._id}
-            className="columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4 mb-4"
-          >
-            {picture.images.map((imageUrl, imageIndex) => (
-              <Image
-                className="transform rounded-lg brightness-80 transition will-change-auto hover:brightness-110 mb-4"
-                src={imageUrl}
-                alt="alex"
-                key={imageIndex}
-                width={720}
-                height={480}
-                sizes="(max-width: 640px) 100vw,
-                (max-width: 1280px) 50vw,
-                (max-width: 1536px) 33vw,
-                25vw"
-              />
-            ))}
+          <div key={picture._id}>
+            <ImageGallery images={picture.images} />
           </div>
         </div>
       ))}

@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
 import ImageGallery from "./ImageGallery";
+import ImageLightbox from "./ImageLightBox";
 
 export default async function PictureGallery() {
   const gallery = await getHome();
@@ -15,7 +16,7 @@ export default async function PictureGallery() {
           {gallery.map((pictures) => (
             <div key={pictures._id}>
               {" "}
-              <ImageGallery galleryImages={pictures} />
+              <ImageGallery images={pictures.images} />
               {/* {pictures.images.map((imageUrl, imageIndex) => (
                 <ImageGallery key={imageIndex} galleryImages={imageUrl} />
               ))} */}
