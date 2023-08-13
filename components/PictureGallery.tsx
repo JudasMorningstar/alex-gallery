@@ -1,9 +1,6 @@
 import { getHome } from "@/sanity/lib/utils";
 import React from "react";
-import Image from "next/image";
-import { Carousel } from "@material-tailwind/react";
 import ImageGallery from "./ImageGallery";
-import ImageLightbox from "./ImageLightBox";
 
 export default async function PictureGallery() {
   const gallery = await getHome();
