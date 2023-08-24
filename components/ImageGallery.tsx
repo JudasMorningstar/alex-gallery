@@ -45,13 +45,13 @@ function ImageGallery({ images }: ImageGalleryProps) {
           {/* exit button */}
           <button
             onClick={() => handleCloseModal()}
-            className="absolute right-[calc(20%)] top-[calc(20%)] flex rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white"
+            className="absolute right-[calc(12%)] top-[calc(12%)] flex rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white"
           >
             <XMarkIcon className="h-5 w-5" />
           </button>
           {/* left arrow */}
           <button
-            className="absolute left-[calc(20%)] top-[calc(50%)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white focus:outline-none"
+            className="absolute left-[calc(12%)] top-[calc(50%)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white focus:outline-none"
             style={{ transform: "translate3d(0, 0, 0)" }}
             onClick={prevSlide}
           >
@@ -59,7 +59,7 @@ function ImageGallery({ images }: ImageGalleryProps) {
           </button>
           {/* right arrow */}
           <button
-            className="absolute right-[calc(20%)] top-[calc(50%)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white focus:outline-none"
+            className="absolute right-[calc(12%)] top-[calc(50%)] rounded-full bg-black/50 p-3 text-white/75 backdrop-blur-lg transition hover:bg-indigo-500 hover:text-white focus:outline-none"
             style={{ transform: "translate3d(0, 0, 0)" }}
             onClick={nextSlide}
           >
@@ -70,8 +70,10 @@ function ImageGallery({ images }: ImageGalleryProps) {
               className="max-w-full max-h-full rounded-xl pointer-events-none select-none"
               src={images[slideNumber]}
               alt={`Image ${slideNumber + 1}`}
-              width={720}
-              height={480}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         </div>

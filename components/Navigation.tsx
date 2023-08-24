@@ -22,6 +22,7 @@ const navigation = [
 ];
 
 const categories = [
+  { name: "Portraits", href: "/gallery/", icon: BugAntIcon },
   { name: "Birds", href: "/gallery/birds", icon: BugAntIcon },
   { name: "Wildlife", href: "/gallery/wildlife", icon: SunIcon },
   { name: "Sports", href: "/gallery/sports", icon: FaceSmileIcon },
