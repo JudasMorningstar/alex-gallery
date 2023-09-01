@@ -20,12 +20,14 @@ export default function RootLayout({
   return (
     <>
       <html lang="en">
-        <body>
-          <header className="sticky inset-x-0 top-0 z-50 w-full bg-black">
+        <body className="bg-black">
+          <header className="sticky inset-x-0 top-0 z-50 w-ful bg-inherit">
             <Navigation />
           </header>
-          <main className="mx-auto max-w-[1960px] p-4">{children}</main>
-          <footer className="p-6 text-center text-white/80 sm:p-12">
+          <main className="bg-inherit mx-auto max-w-[1960px] p-4">
+            {children}
+          </main>
+          <footer className=" bg-inherit p-6 text-center text-white/80 sm:p-12">
             <p>@2023 Alex Pitsillis Photography | ALL RIGHTS RESERVED</p>
             by{" "}
             <Link

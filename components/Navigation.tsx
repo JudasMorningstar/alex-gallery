@@ -68,14 +68,14 @@ export default function Navigation() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-slate-50 hover:text-indigo-500 "
+              className="text-sm font-semibold leading-6 text-gray-50 hover:text-indigo-500 "
             >
               {item.name}
             </Link>
           ))}
           <Popover.Group className="hidden lg:flex lg:gap-x-12">
             <Popover className="relative">
-              <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-slate-50">
+              <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-50">
                 Gallery{" "}
                 <ChevronDownIcon
                   className="h-5 w-5 flex-none text-gray-400"
@@ -96,7 +96,7 @@ export default function Navigation() {
                     {categories.map((item) => (
                       <div
                         key={item.name}
-                        className="group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gradient-to-r from-indigo-500 ..."
+                        className="text-gray-50 group relative flex items-center gap-x-4 rounded-lg p-4 text-sm leading-6 hover:bg-gradient-to-r from-indigo-500 ..."
                       >
                         <div className="flex-auto">
                           <Link

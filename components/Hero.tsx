@@ -24,7 +24,7 @@ export default async function Hero() {
           {banners.map((banner) => (
             <h1
               key={banner._id}
-              className="text-4xl font-bold tracking-tight text-slate-200 sm:text-6xl"
+              className="text-gray-50 text-4xl font-bold tracking-tight text-slate-200 sm:text-6xl"
             >
               {banner.slogan}
             </h1>
@@ -32,7 +32,7 @@ export default async function Hero() {
           {banners.map((banner) => (
             <div
               key={banner._id}
-              className="mt-6 text-lg leading-8 text-slate-50"
+              className="text-gray-100 text-lg leading-8 text-slate-50"
             >
               {banner.content}
             </div>
@@ -47,7 +47,7 @@ export default async function Hero() {
             </Link>
             <Link
               href="/about"
-              className="text-sm font-semibold leading-6 text-slate-50"
+              className="text-sm font-semibold leading-6 text-gray-50"
             >
               Learn more <span aria-hidden="true">→</span>
             </Link>

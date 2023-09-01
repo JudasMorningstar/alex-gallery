@@ -1,4 +1,3 @@
-import { getAbout, getDesk } from "@/sanity/lib/utils";
 import Image from "next/image";
 
 type Props = {
@@ -6,8 +5,6 @@ type Props = {
 };
 
 export default async function About() {
-  // const about = await getDesk();
-
   return (
     <>
       <div className=" bg-slate-50">

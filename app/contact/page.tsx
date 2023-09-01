@@ -1,6 +1,26 @@
 "use client";
 
+import { useState } from "react";
+
+const initValues = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  subject: "",
+  message: "",
+};
+
+const initState = { values: initValues };
+
 export default function Contact() {
+  const [state, setState] = useState(initState);
+  const { values } = state;
+  const onChange = ({ target }: any) =>
+    setState((prev) => ({
+      ...prev,
+      values: { ...prev.values, [target.name]: target.value },
+    }));
+
   return (
     <>
       <div
