@@ -48,7 +48,7 @@ export default function Navigation() {
             {/* <span className="text-white">Alex Pitsillis</span> */}
             <Image
               className="h-8 w-auto"
-              src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1691500015/logo_bnkr1d.png"
+              src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1691500015/alex/logo_bnkr1d.png"
               alt="alex-logo"
               height={50}
               width={100}
