@@ -3,6 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
+import { ToastProvider } from "@/provider/toast-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function RootLayout({
             <Navigation />
           </header>
           <main className="bg-inherit mx-auto max-w-[1960px] p-4">
+            <ToastProvider />
             {children}
           </main>
           <footer className=" bg-inherit p-6 text-center text-white/80 sm:p-12">

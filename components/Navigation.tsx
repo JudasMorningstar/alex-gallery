@@ -1,5 +1,7 @@
 "use client";
 
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+
 import { Fragment, useState } from "react";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import Link from "next/link";
@@ -135,7 +137,6 @@ export default function Navigation() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-black px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5">
-              {/* <span>Alex Pitsillis</span> */}
               <Image
                 className="h-8 w-auto"
                 src="https://res.cloudinary.com/ddsnqfovk/image/upload/v1691500015/logo_bnkr1d.png"

@@ -1,25 +1,66 @@
 "use client";
 
-import { useState } from "react";
+import { NextResponse } from "next/server";
+import { FormEvent, useState } from "react";
+import { Resend } from "resend";
+import { toast } from "sonner";
 
-const initValues = {
+interface FormValues {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface FormState {
+  isLoading: boolean;
+  error: string;
+  values: FormValues;
+}
+
+const initValues: FormValues = {
   firstName: "",
-  lastName: "",
   email: "",
+  lastName: "",
   subject: "",
   message: "",
 };
 
-const initState = { values: initValues };
+const initState: FormState = {
+  isLoading: false,
+  error: "",
+  values: initValues,
+};
 
 export default function Contact() {
   const [state, setState] = useState(initState);
+
   const { values } = state;
-  const onChange = ({ target }: any) =>
+
+  const handleChange = ({ target }: any) =>
     setState((prev) => ({
       ...prev,
       values: { ...prev.values, [target.name]: target.value },
     }));
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    try {
+      const data = await resend.emails.send({
+        from: values.email,
+        to: ["junade.dev@gmail.com"],
+        subject: values.subject,
+        text: values.message,
+      });
+      toast.success("Email sent successfully.");
+      return NextResponse.json(data);
+    } catch (error) {
+      toast.error("Error sending email");
+      return NextResponse.json({ error });
+    }
+  };
 
   return (
     <>
@@ -45,7 +86,7 @@ export default function Contact() {
           have. Let&apos;s embark on this journey together and have some fun
           along the way!
         </p>
-        <form action="#" className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
               <label
@@ -56,11 +97,13 @@ export default function Contact() {
               </label>
               <div className="mt-2.5">
                 <input
+                  onChange={handleChange}
                   type="text"
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
                   placeholder="Alex"
+                  value={values.firstName}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -78,7 +121,9 @@ export default function Contact() {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
+                  onChange={handleChange}
                   placeholder="Pitsillis"
+                  value={values.lastName}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -93,10 +138,12 @@ export default function Contact() {
               Your email
             </label>
             <input
+              onChange={handleChange}
               type="email"
               id="email"
               className="shadow-sm text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5  border-gray-600 placeholder-gray-400 text-gray-900 focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
               placeholder="name@example.com"
+              value={values.email}
               required
             />
           </div>
@@ -109,9 +156,11 @@ export default function Contact() {
             </label>
             <input
               type="text"
+              onChange={handleChange}
               id="subject"
               className="block p-3 w-full text-sm rounded-lg shadow-sm focus:ring-primary-500 focus:border-primary-500 bg-slate-50 dorder-gray-600 placeholder-gray-400 text-gray-900 focus:ring-primary-500 focus:border-primary-500 shadow-sm-light"
               placeholder="Let us know how we can help you"
+              value={values.subject}
               required
             />
           </div>
@@ -123,10 +172,12 @@ export default function Contact() {
               Your message
             </label>
             <textarea
+              onChange={handleChange}
               rows={8}
               id="message"
               className="block p-2.5 w-full text-sm rounded-lg shadow-sm border  focus:ring-primary-500 focus:border-primary-500 bg-slate-50 border-gray-600 placeholder-gray-400 text-gray-900 focus:ring-primary-500 focus:border-indigo-500"
               placeholder="Leave a comment..."
+              value={values.message}
             ></textarea>
           </div>
           <button
