@@ -2,6 +2,7 @@
 
 import { NextResponse } from "next/server";
 import { ChangeEvent, FormEvent, useState } from "react";
+import { Mail, Phone } from "lucide-react";
 import { Resend } from "resend";
 import { toast } from "sonner";
 
@@ -90,6 +91,20 @@ export default function Contact() {
           have. Let&apos;s embark on this journey together and have some fun
           along the way!
         </p>
+        <div className=" text-slate-50 w-full flex justify-evenly items-center flex-wrap m-8">
+          <div className="flex gap-2 hover:text-indigo-500">
+            <Mail />
+            <a href="mailto:apitsillis@gmail.com" className="p-text">
+              apitsillis@gmail.com
+            </a>
+          </div>
+          <div className="flex gap-2 hover:text-indigo-500">
+            <Phone />
+            <a href="tel:+27 (82) 457-4584" className="p-text">
+              +27 (82) 457-4584
+            </a>
+          </div>
+        </div>
         <form onSubmit={handleSubmit} className="space-y-8">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
