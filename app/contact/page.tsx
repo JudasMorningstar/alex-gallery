@@ -91,7 +91,7 @@ export default function Contact() {
           have. Let&apos;s embark on this journey together and have some fun
           along the way!
         </p>
-        <div className=" text-slate-50 w-full flex justify-evenly items-center flex-wrap m-8">
+        <div className=" text-slate-50 w-full flex justify-evenly items-center flex-wrap p-4">
           <div className="flex gap-2 hover:text-indigo-500">
             <Mail />
             <a href="mailto:apitsillis@gmail.com" className="p-text">
