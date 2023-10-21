@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import { ToastProvider } from "@/provider/toast-provider";
+import NavBar from "@/components/ui/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +24,7 @@ export default function RootLayout({
       <html lang="en">
         <body className="bg-black">
           <header className="sticky inset-x-0 top-0 z-50 w-ful bg-inherit">
-            <Navigation />
+            <NavBar />
           </header>
           <main className="bg-inherit mx-auto max-w-[1960px] p-4">
             <ToastProvider />
