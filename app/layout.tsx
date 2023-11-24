@@ -13,6 +13,21 @@ export const metadata: Metadata = {
   title: "Alex Pitsillis",
   description:
     "Explore the world through my lens. Discover captivating moments captured through photography. Welcome to my portfolio showcasing a blend of landscapes, portraits, and events.",
+  keywords: [
+    "alex portfolio",
+    "alex pitsillis",
+    "alexander pitsillis",
+    "alex photography",
+    ],
+  authors: [
+    {
+    name: "Junade Mchunu",
+    url: "https://junademchunu.co.za/"
+    },
+  ],
+  icons: {
+    icon: "/favicon.ico",
+  }
 };
 
 export default function RootLayout({
