@@ -1,6 +1,6 @@
 import { groq } from "next-sanity";
 import { client } from "./client";
-import {
+import type {
   About,
   Banner,
   Contact,

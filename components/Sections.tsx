@@ -20,7 +20,7 @@ export default async function Sections() {
                 (max-width: 1280px) 50vw,
                 (max-width: 1536px) 33vw,
                 25vw"
-              className="mt-5 rounded-lg"
+              className="mt-5 rounded-lg pointer-events-none"
             />
             <div className="mt-4 md:mt-0">
               <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-slate-50">

@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import { ToastProvider } from "@/provider/toast-provider";
 import NavBar from "@/components/ui/NavBar";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,29 +22,31 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <html lang="en">
-        <body className="bg-black">
-          <header className="sticky inset-x-0 top-0 z-50 w-ful bg-inherit">
-            <NavBar />
-          </header>
-          <main className="bg-inherit mx-auto max-w-[1960px] p-4">
-            <ToastProvider />
-            {children}
-          </main>
-          <footer className=" bg-inherit p-6 text-center text-white/80 sm:p-12">
-            <p>@2023 Alex Pitsillis Photography | ALL RIGHTS RESERVED</p>
-            by{" "}
-            <Link
-              href="https://junademchunu.co.za/"
-              target="_blank"
-              className="font-semibold hover:text-white"
-              rel="noreferrer"
-            >
-              Junade Mchunu
-            </Link>
-          </footer>
-        </body>
-      </html>
+      <ClerkProvider>
+        <html lang="en">
+          <body className="bg-black">
+            <header className="sticky inset-x-0 top-0 z-50 w-ful bg-inherit">
+              <NavBar />
+            </header>
+            <main className="bg-inherit mx-auto max-w-[1960px] p-4">
+              <ToastProvider />
+              {children}
+            </main>
+            <footer className=" bg-inherit p-6 text-center text-white/80 sm:p-12">
+              <p>@2023 Alex Pitsillis Photography | ALL RIGHTS RESERVED</p>
+              by{" "}
+              <Link
+                href="https://junademchunu.co.za/"
+                target="_blank"
+                className="font-semibold hover:text-white"
+                rel="noreferrer"
+              >
+                Junade Mchunu
+              </Link>
+            </footer>
+          </body>
+        </html>
+      </ClerkProvider>
     </>
   );
 }

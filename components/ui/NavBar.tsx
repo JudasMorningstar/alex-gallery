@@ -1,6 +1,7 @@
 "use client";
 import React, { Fragment, useState } from "react";
 import Img from "next/image";
+import { auth } from "@clerk/nextjs";
 import {
   Bird,
   ChevronDownIcon,
@@ -201,7 +202,7 @@ export default function NavBar() {
               </div>
               <div className="py-6">
                 <Link
-                  href="/studio"
+                  href=""
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-50 hover:bg-indigo-500"
                 >
                   Log in

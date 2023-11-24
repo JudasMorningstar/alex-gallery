@@ -89,7 +89,7 @@ function ImageGallery({ images }: ImageGalleryProps) {
                 onClick={() => handleOpenModal(index)}
               >
                 <Image
-                  className="transform rounded-lg brightness-80 transition will-change-auto hover:brightness-110 mb-4"
+                  className="transform rounded-lg brightness-80 transition will-change-auto hover:brightness-110 mb-4 pointer-events-none"
                   key={index}
                   src={slide}
                   alt={`Image ${index + 1}`}

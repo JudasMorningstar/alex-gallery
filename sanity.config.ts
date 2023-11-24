@@ -13,7 +13,6 @@ import {
   cloudinaryAssetSourcePlugin,
   cloudinarySchemaPlugin,
 } from "sanity-plugin-cloudinary";
-import { assist } from "@sanity/assist";
 
 export default defineConfig({
   basePath: "/studio",
